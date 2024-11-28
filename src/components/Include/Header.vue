@@ -23,7 +23,7 @@
         <li>
           <a href="/Career" class="animsition-link">Career</a>
         </li>
-        <li><a href="blog.html" class="animsition-link">Blog</a></li>
+        <li><a href="/Blog" class="animsition-link">Blog</a></li>
         <li><a href="contact.html" class="animsition-link">Contact</a></li>
       </ul> <!-- .templateux-menu -->
 

@@ -12,6 +12,12 @@ const routes =  [
     alias: "/Career",
     name: "Career",
     component: () => import("./components/Career")
+  },
+  {
+    path: "/Blog",
+    alias: "/Blog",
+    name: "Blog",
+    component: () => import("./components/Blog")
   }
 ];
 

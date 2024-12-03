@@ -24,6 +24,22 @@
           <a href="/Career" class="animsition-link">Career</a>
         </li>
         <li><a href="/Blog" class="animsition-link">Blog</a></li>
+        <li><a href="#" class="nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
+                {{ uid ? userName.name : 'User Account' }}</a>
+            
+        
+              <div class="dropdown-menu">
+                <!-- Show Login/Signup if user is not logged in -->
+                <a v-if="!uid" href="/login" class="dropdown-item">Login</a>
+                <a v-if="!uid" href="/Register" class="dropdown-item">Register</a>
+
+                <!-- Show Logout and user-specific links if user is logged in -->
+                <button v-if="uid" class="dropdown-item" @click="logout">Logout</button>
+                <a v-if="uid" href="/MyProfile" class="dropdown-item">My Profile</a>
+                
+              </div>
+          </li>
+            
         <li><a href="contact.html" class="animsition-link">Contact</a></li>
       </ul> <!-- .templateux-menu -->
 
@@ -37,23 +53,28 @@
 
 </template>
 
+
+
+
 <script>
 export default {
   name: 'Header',
   data() {
     return {
-      uid:sessionStorage.getItem('uid')
+      uid: sessionStorage.getItem('uid'),
+      userName: JSON.parse(sessionStorage.getItem('userName'))
     };
   },
-  props: {
-    msg: String
-  },
+ 
+
   methods: {
     logout() {
-      this.uid="";
-      sessionStorage.setItem('uid', '');
-      window.location.reload();
+      this.uid = "";  // Clear uid
+      this.userName = null;  // Clear userName
+      sessionStorage.removeItem('uid'); // Clear sessionStorage
+      sessionStorage.removeItem('userName'); // Clear sessionStorage
+      this.$router.push('/'); // Redirect to home or login page
     }
   }
-}
+};
 </script>

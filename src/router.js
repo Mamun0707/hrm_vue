@@ -18,6 +18,18 @@ import { createWebHistory, createRouter } from "vue-router";
       alias: "/Blog",
       name: "Blog",
       component: () => import("./components/Blog")
+    },
+    {
+      path: "/login",
+      alias: "/login",
+      name: "login",
+      component: () => import("./components/login")
+    },
+    {
+      path: "/MyProfile",
+      alias: "/MyProfile",
+      name: "MyProfile",
+      component: () => import("./components/MyProfile")
     }
   ];
 

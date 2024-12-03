@@ -10,13 +10,13 @@
           <div class="profile-header">
             <!-- Profile Picture -->
             <div class="profile-pic">
-              <img v-if="uid && userName.photo" :src='"http://127.0.0.1:8000/customers/" + userName.photo' alt="profile"
-                class="profile-img" />
+              <!-- <img v-if="uid && userName.photo" :src='"http://127.0.0.1:8000/customers/" + userName.photo' alt="profile"
+                class="profile-img" /> -->
             </div>
             <div class="">
-              <h2>{{ userName.full_name }}</h2>
+              <h2>{{ userName.name }}</h2>
               <p class="profile-email">E-mail: {{ userName.email }}</p>
-              <p class="profile-phone">Phone: {{ userName.phone }}</p>
+              <p class="profile-phone">Phone: {{ userName.phone_no }}</p>
               <p class="profile-address">Address: {{ userName.address }}</p>
             </div>
           </div>

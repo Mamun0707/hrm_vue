@@ -70,11 +70,11 @@
       </div>
 
       <div class="form-group">
-        <label for="experience">Years of Professional Experience (if any)</label>
+        <label for="prof_exp">Years of Professional Experience (if any)</label>
         <input 
           type="text" 
-          id="experience" 
-          v-model="form.experience" 
+          id="prof_exp" 
+          v-model="form.prof_exp" 
           placeholder="Professional Experience (Optional)"
         />
       </div>
@@ -121,7 +121,7 @@ export default {
         email: '',
         address: '',
         district: '',
-        experience: '',
+        prof_exp: '',
         education: ''
       },
       resume_pdf: null,
@@ -150,16 +150,15 @@ export default {
       formData.append('email', this.form.email);
       formData.append('address', this.form.address);
       formData.append('district', this.form.district);
-      formData.append('experience', this.form.experience);
+      formData.append('prof_exp', this.form.prof_exp);
       formData.append('education', this.form.education);
       formData.append('resume_pdf', this.resume_pdf); // Append file
 
       // Send the data to your API via DataService
       DataService.career(formData)
         .then(response => {
-          if (response.data && response.data.data.token) {
-            sessionStorage.setItem('uid', response.data.data.token);
-            sessionStorage.setItem('userName', JSON.stringify(response.data.data));
+          console.log(response)
+          if (response.data) {
             router.push({ name: 'home' });  // Redirect after success
           } else {
             alert(response.data.error);
@@ -178,7 +177,7 @@ export default {
         email: '',
         address: '',
         district: '',
-        experience: '',
+        prof_exp: '',
         education: ''
       };
       this.resume_pdf = null;
@@ -234,7 +233,7 @@ input, textarea {
 
 button {
   background-color: #4CAF50;
-  color: white;
+  color: rgb(216, 94, 94);
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -243,7 +242,7 @@ button {
 }
 
 button:disabled {
-  background-color: #ddd;
+  background-color: #e26464;
   cursor: not-allowed;
 }
 
